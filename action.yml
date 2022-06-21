@@ -1,0 +1,15 @@
+name: "Thank You Action"
+description: 'Say "Thank You" for every new pull request'
+author: "Allan Johnson"
+
+inputs:
+  GITHUB_TOKEN:
+    description: "Github Token"
+    required: true
+  TENOR_TOKEN:
+    description: "Tenor Token"
+    required: true
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
