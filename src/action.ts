@@ -12,7 +12,7 @@ async function run() {
     owner: context.payload.repository?.owner.login ?? "",
     repo: context.payload.repository?.name ?? "",
     issue_number: pull_request?.number ?? 0,
-    body: "Thank yout for submit a new Pull Request! we will try to review it as soon as we can",
+    body: "Thank your for submit a new Pull Request! we will try to review it as soon as we can",
   });
 }
 

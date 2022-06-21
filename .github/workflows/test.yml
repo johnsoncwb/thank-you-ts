@@ -1,0 +1,14 @@
+name: Test
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: johnsoncwb/thank-you-ts@v1
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

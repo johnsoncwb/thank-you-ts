@@ -8823,10 +8823,33 @@ function wrappy (fn, cb) {
 /***/ }),
 
 /***/ 5424:
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) {
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8836,15 +8859,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const core = __nccwpck_require__(272);
-const github = __nccwpck_require__(1728);
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const core = __importStar(__nccwpck_require__(272));
+const github = __importStar(__nccwpck_require__(1728));
 function run() {
+    var _a, _b, _c, _d, _e;
     return __awaiter(this, void 0, void 0, function* () {
         const githubToken = core.getInput("GITHUB_TOKEN");
         const octoKit = github.getOctokit(githubToken);
-        const { context = {} } = github;
+        const { context } = github;
         const { pull_request } = context.payload;
-        yield octoKit.rest.issues.createComment(Object.assign(Object.assign({}, context.repo), { issue_number: pull_request.number, body: "Thank yout for submit a new Pull Request! we will try to review it as soon as we can" }));
+        yield octoKit.rest.issues.createComment({
+            owner: (_b = (_a = context.payload.repository) === null || _a === void 0 ? void 0 : _a.owner.login) !== null && _b !== void 0 ? _b : "",
+            repo: (_d = (_c = context.payload.repository) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : "",
+            issue_number: (_e = pull_request === null || pull_request === void 0 ? void 0 : pull_request.number) !== null && _e !== void 0 ? _e : 0,
+            body: "Thank your for submit a new Pull Request! we will try to review it as soon as we can",
+        });
     });
 }
 run();
