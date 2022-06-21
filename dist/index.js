@@ -8873,7 +8873,7 @@ function run() {
             owner: (_b = (_a = context.payload.repository) === null || _a === void 0 ? void 0 : _a.owner.login) !== null && _b !== void 0 ? _b : "",
             repo: (_d = (_c = context.payload.repository) === null || _c === void 0 ? void 0 : _c.name) !== null && _d !== void 0 ? _d : "",
             issue_number: (_e = pull_request === null || pull_request === void 0 ? void 0 : pull_request.number) !== null && _e !== void 0 ? _e : 0,
-            body: "Thank your for submit a new Pull Request! we will try to review it as soon as we can",
+            body: "Thank you for submit a new Pull Request! we will try to review it as soon as we can",
         });
     });
 }
